@@ -257,6 +257,11 @@ $$ Capgemini UK interview
 3) Hands on programming challenge. Multiple implementaions and test those.
 4) If two interfaces have the same default methods, with the same method signature, and you have one class that implements both the interfaces.
    Then which method will be executed by the class?
+   
+   Java 8 supports default methods where interfaces can provide a default implementation of methods. 
+   And a class can implement two or more interfaces. In case both the implemented interfaces contain default methods with the same method signature, 
+   the implementing class should explicitly specify which default method is to be used, or it should override the default method. 
+   
 5) Will the above give any compilation error/problem? If yes, how will you resolve that problem?
 6) How is multiple inheritance supported by java?
 7) Which java 8 features did you use?
@@ -408,8 +413,6 @@ Core Java
 5) When hibernate fires the same query for the second time, does ot go to the DB or it hits the cache and gives back the result?
 
 
-
-
 ===================================================================================================================
 #
 #  NatWest UK Position - First Round of interview
@@ -418,7 +421,6 @@ Core Java
 1) What do you understand by real time processing of data?
 2) In RestFul service, say one service is called first. Then in parallel other services are called. How will you deal with this design problem?
 3) Current Project, generic questions
-
 
 
 =================================================================================================================
@@ -435,7 +437,6 @@ Core Java
 6) Did you use Apache Camel? 
 7) How did you use Camel? What are main drawbacks or disadvantages of Camel, when compared to other frameworks?
 8) Did you write Camel configuration with DSL? How did you do it?
-
 
 
 =================================================================================================================
@@ -458,112 +459,86 @@ ThoughtWorks - Technical Interview
    If not, why? Would you like to work in any other stack? Why?
 6) What changes were done to deployment mechanism when moved to private cloud from on-premises infrastructure?
 
-
-
-
-============================================================================================================================================================
+============================
 
 CTS Off shore Questions
+===========================
 
-============================================================================================================================================================
-
-Explain Functional  interface, Default method, method reference?
-
-How to overload and override main method in Java?
+1)Explain Functional  interface, Default method, method reference?
+2)How to overload and override main method in Java?
 
 Yes, We can overload the main method in java but JVM only calls the original main method, it will never call our overloaded main method.
 
-What will be the end result of .filter() operation in stream API?
+3)What will be the end result of .filter() operation in stream API?
 
-The filter method essentially selects elements based on a condition you provide. That's why the filter (Predicate condition) accepts a Predicate object, which provides a function that is applied to a condition. If the condition evaluates true, the object is selected. Otherwise, it will be ignored.
+Returns a stream consisting of the elements of [a given] stream that match the given predicate.
+The filter method essentially selects elements based on a condition you provide. That's why the filter (Predicate condition) accepts a Predicate object, 
+which provides a function that is applied to a condition. If the condition evaluates true, the object is selected. Otherwise, it will be ignored.
 
-What is Predicate in java 8?
+4)What is Predicate in java 8?
 In Java 8, Predicate is a functional interface, which accepts an argument and returns a boolean. Usually, it used to apply in a filter for a collection of objects.
 
-Different between finally and finalize?
-
-Explain Optional of() method in Java with examples?
+5)Different between finally and finalize?
+6)Explain Optional of() method in Java with examples?
 
 The of() method of java.util.Optional class in Java is used to get an instance of this Optional class with the specified value of the specified type.
 // create a Optional
- Optional<Integer> op = Optional.of(9455);
+Optional<Integer> op = Optional.of(9455);
 // print valuel
 System.out.println("Optional: " + op);
 Output: Optional: Optional[9455]
 
-What happens when we declare a thread inside main method in java, what are the active threads are there in the program?
-
-
-
-
-Explain @SpringbootApplication annotation?
-
-Advantage and disadvantage of resttemplate and feignclient?
+7)What happens when we declare a thread inside main method in java, what are the active threads are there in the program?
+8)Explain @SpringbootApplication annotation?
+9)Advantage and disadvantage of resttemplate and feignclient?
 
 
 Using Feign-clients over rest-templates has number of advantages. I will list down those below.
-
-• The developer need not worry about the implementation. Just to create abstract Feign interface and few annotations - declarative principle. (If you want customized configuration, then it will hold some code)
+The developer need not worry about the implementation. Just to create abstract Feign interface and few annotations - declarative principle. (If you want customized configuration, then it will hold some code)
 
 • With Spring Cloud Eureka, Ribbon client-side load-balancer will be equipped with Feign client.
-
 • No need to worry about the unit test, because there is no implementation from you to test. (Arguable)
-
 • Supports Feign annotations and JAX-RS annotations.
-
 • Highly compatible and easily configurable with Spring Cloud (Specially with Eureka server registry)
-
 • Allows Feign client configuration via @Configuration class or application properties.
-
-• Allows us to add interceptors. (Add interceptors via @Configuration or application properties. Alternatively can use Spring Cloud provided interceptors as well. Example - BasicAuthRequestInterceptor)
-
+• Allows us to add interceptors. (Add interceptors via @Configuration or application properties. Alternatively can use Spring Cloud provided interceptors as well. 
+Example - BasicAuthRequestInterceptor)
 • Hystrix support for fall-back mechanism.
-
 • Logging
-
 • Error handling
+Feign is a good choice, If you are fascinated with JPA and the way how it resolves your queries, 
+then Feign is the tool for you. Feign will handle your server requests perfectly fine.
+RestTemplate is used for making the synchronous call. When using RestTemplate, the URL parameter is constructed programmatically, 
+and data is sent across to the other service. In more complex scenarios, we will have to get to the details of the HTTP APIs provided by 
+RestTemplate or even to APIs at a much lower level.Feign is a Spring Cloud Netflix library for providing a higher level of abstraction over 
+REST-based service calls. Spring Cloud Feign works on a declarative principle. When using Feign, we write declarative REST service interfaces at the client, 
+and use those interfaces to program the client. The developer need not worry about the implementation ...
 
-Feign is a good choice, If you are fascinated with JPA and the way how it resolves your queries, then Feign is the tool for you. Feign will handle your server requests perfectly fine.
+10)Explain springboot Actuator?
+11)How to Changing the Logging Level at the Runtime for a Spring Boot Application?
 
-RestTemplate is used for making the synchronous call. When using RestTemplate, the URL parameter is constructed programmatically, and data is sent across to the other service. In more complex scenarios, we will have to get to the details of the HTTP APIs provided by RestTemplate or even to APIs at a much lower level.
-
-Feign is a Spring Cloud Netflix library for providing a higher level of abstraction over REST-based service calls. Spring Cloud Feign works on a declarative principle. When using Feign, we write declarative REST service interfaces at the client, and use those interfaces to program the client. The developer need not worry about the implementation ...
-
-
-Explain springboot Actuator?
-
-How to Changing the Logging Level at the Runtime for a Spring Boot Application?
-
-We're going to start by using the /loggers Actuator endpoint to display and change our logging level. The /loggers endpoint is available at actuator/loggers and we can access a specific logger by appending its name as part of the path.
-
+We're going to start by using the /loggers Actuator endpoint to display and change our logging level. 
+The /loggers endpoint is available at actuator/loggers and we can access a specific logger by appending its name as part of the path.
 For example, we can access the root logger with the URL http://localhost:8080/actuator/loggers/root.
-
 To change the logging level, we can issue a POST request to the /loggers endpoint:
-
 curl -i -X POST -H 'Content-Type: application/json' -d '{"configuredLevel": "TRACE"}' http://localhost:8080/actuator/loggers/com.baeldung.spring.boot.management.logging HTTP/1.1 204 Date: Mon, 02 Sep 2019 13:56:52 GMT
 
-Can we use .yml and .properties  both in single springboot  application?
+12)Can we use .yml and .properties  both in single springboot  application?
 
 Yes You can use both at same time in same project.
-
 When you use both YML and properties at same time, say for example
 application.yml and application.properties at same time in same
 project, first application.yml will be loaded later
 application.properties will be loaded.
-
-Important point to be noted is that if application.yml and application.properties have same keys for example in application.yml has spring.app.name = testYML and application.properties has spring.app.name = testProperties at same time in same project, then application.yml value will be overwritten by application.properties value since it is loading at last.
-
+Important point to be noted is that if application.yml and application.properties have same keys 
+for example in application.yml has spring.app.name = testYML and application.properties has spring.app.name = testProperties at same time in same project, 
+then application.yml value will be overwritten by application.properties value since it is loading at last.
 And the value in spring.app.name = testProperties.
-
-
-
-
 
 
 =============================================
 Ericsson - Kolkata - First Round
-============================================
-
+=============================================
 
 1) What is the new change brought in terms of memory in java 8?
 
@@ -585,12 +560,7 @@ and after 10 sec cache needs to be cleared by 1 element and before insertion of 
 
 Use two threads , one will wait for 10 seconds after inserting an element and other will wait for 10 seconds before removing it from cache.
 
-
-
-
 6) https://www.geeksforgeeks.org/producer-consumer-solution-using-threads-java/
-
-
 
 
 ================================================
@@ -612,6 +582,7 @@ Ericsson - Second Round - Kolkata
 13) How to disable sipringboot autoconfiguration?
 14) What is an actuator in springboot?
 15) Can we run a springboot application as standalone java application?
+
 
 	COGNIZANT - Project Interview
 ------------------------
@@ -648,6 +619,9 @@ the singleton bean from the prototype, then should I get a prototype or a single
 first bean?
 6) How should I map a requerement with a design decision? What is the name of the document template?
 7) Is static inner class possible? Is static outer class possible?
+	A class with in another class is known as inner class, you cannot declare a class static unless it is an inner class. 
+	A static inner class is just like other class variables. 
+	You can access it (static inner class) without instantiation
 8) How can we customize java object serrialization? or is there a hook for cross cutting the java object serialization process?
 
 
@@ -666,7 +640,7 @@ file. How can I do that?
 17) Is it possible to run multiple JVMs on the same system?
 18) How do you start a JVM?
 19) What is the difference between a state pattern and a strategy pattern?
-20) Where and how did you use state pattern? ( Probably, they are interested to know the Business Delegate scenario )
+20) Where and how did you use state pattern? ( Probably, they are interested to know the Business Delegate scenario )/ Collections.sort(), here based on the comparator logic the sorting can be done.
 21) What is a hash code? How does a hash code work?
 22) What is the return type of put(Object) in collections?
 23) If I want to insert duplicate Strings in keys of a HashMap, how should I change the String class?
@@ -682,6 +656,12 @@ file. How can I do that?
 2) How can we make the collection classes synchronized?
 3) How to configure Transaction management in Spring with XML?
 4) What is aggregation? What is composition in Java?
+	1. Dependency: Aggregation implies a relationship where the child can exist independently of the parent. 
+	For example, Bank and Employee, delete the Bank and the Employee still exist. 
+	whereas Composition implies a relationship where the child cannot exist independent of the parent. 
+	Example: Human and heart, heart don’t exist separate to a Human
+	2. Type of Relationship: Aggregation relation is “has-a” and composition is “part-of” relation.
+	3. Type of association: Composition is a strong Association whereas Aggregation is a weak Association.
 5) What is the difference between composition and aggregation in java?
 6) What is SingleThreadModel? How to use? Merits and demerits of STM?
 7) About Servlet lifecycle? What is the init() method? What is the method signature of the init() method?
@@ -711,10 +691,36 @@ file. How can I do that?
 4		   | UY		     |	25
 5		   | UJ		     |	10
 
+Solution 1
+----------
+SELECT
+    TOP 1 marks
+FROM
+    (SELECT DISTINCT TOP 3 marks FROM student ORDER BY marks DESC) a ORDER BY marks
+
+Solution 2
+----------
+SELECT mark
+FROM student
+GROUP BY mark
+ORDER BY mark DESC
+LIMIT 2 , 1
+
 
 2) What are the different lifecycle stages of a JSF managed bean?
+	In execute phase, when first request is made, application view is built or restored. 
+	For other subsequent requests other actions are performed like request parameter values are applied, 
+	conversions and validations are performed for component values, 
+	managed beans are updated with component values and application logic is invoked.
 
+	The execute phase is further divided into following subphases.
 
+	Restore View Phase
+	Apply Request Values Phase
+	Process Validations Phase
+	Update Model Values Phase
+	Invoke Application Phase
+	Render Response Phase
 
 	SAPIENT
 ---------------------
@@ -753,9 +759,6 @@ file. How can I do that?
 2) Start time - 3:45 PM
 
 
-
-
-
 	eRevMax
 -----------------------------
 1) What is a ConsurrenthashMap? How to Use?
@@ -778,3 +781,16 @@ file. How can I do that?
 15) In which components of a class can we use synchronization?
 15) If there are two synchronizad methods in a class, then can we call both the methods at a same time?
 16) How will you decide, which methods to make synchronized in a class?
+
+
+hexaview
+-----------------
+1)Write a code for printing number of charecter occourence of given string?
+	https://www.geeksforgeeks.org/java-program-to-count-the-occurrence-of-each-character-in-a-string-using-hashmap/
+2)Write code to sum up values of an integer array with stream api?
+3)What are the J2ee design patterns you know?
+4)What is filter pattern?
+5)How HashMap works internally?
+6)What is lambda function?
+7)What is stream API?
+8)Have you worked on any MQ ?
