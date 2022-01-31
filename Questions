@@ -261,9 +261,16 @@ $$ Capgemini UK interview
    Java 8 supports default methods where interfaces can provide a default implementation of methods. 
    And a class can implement two or more interfaces. In case both the implemented interfaces contain default methods with the same method signature, 
    the implementing class should explicitly specify which default method is to be used, or it should override the default method. 
+   The rule is that the class implementing the duplicate default methods 'must' override the implementation
    
 5) Will the above give any compilation error/problem? If yes, how will you resolve that problem?
 6) How is multiple inheritance supported by java?
+
+	Default methods in Java 8 can be viewed as a form of multiple inheritance (except that attribute can not be inherited).
+	The main motivation behind default methods is that if at some point we need to add a method to an existing interface, 
+	we can add a method without changing the existing implementation classes. In this way, the interface is still compatible with older versions. 
+	This is a cool feature. However, we should remember the motivation of using Default Methods and should keep the separation of interface and implementation.
+	
 7) Which java 8 features did you use?
 8) What is stream?
 9) How will you filter a list of employees, who have salary greater then 10,000 pounds?
@@ -282,6 +289,10 @@ Spring
 19) In Spring rest, how did you do authentication?
 20) What are the different HTTP methods? 
 21) What are difference between PUT and PATCH?
+
+	PUT is a method of modifying resource where the client sends data that updates the entire resource . 
+	PATCH is a method of modifying resources where the client sends partial data that is to be updated without modifying the entire data.
+	
 22) What are the diferrences between PUT, POST and PATCH?
 23) In authentication, what is token based authentication?
 24) In a JWT token, how many parts are there? --> Ans : header, payload, signature.
@@ -408,6 +419,7 @@ Core Java
    Answer : Arithmatic**OperationException
    
 2) What exception will you get if you divide a long or float by zero? Why difference?
+	In order to handle cases like these, Java uses some special numeric values that can represent the results of such an operation: NaN, POSITIVE_INFINITY, and NEGATIVE_INFINITY.
 3) How are the incoming requests mapped to the servlets? 
 4) When there is an incoming request, how does it come to the RestFul controller?
 5) When hibernate fires the same query for the second time, does ot go to the DB or it hits the cache and gives back the result?
@@ -561,7 +573,33 @@ and after 10 sec cache needs to be cleared by 1 element and before insertion of 
 Use two threads , one will wait for 10 seconds after inserting an element and other will wait for 10 seconds before removing it from cache.
 
 6) https://www.geeksforgeeks.org/producer-consumer-solution-using-threads-java/
+7) Write a program to print fibonaccci seriese with java 8 stream api?
+8) what is service dicovery and api gateway in microservice?
+9) benifit of using microservice?
+10) What is saga design pattern?
+12) Explain the design patterns of microservice?
+13) What is OAuth in spring security?
+14) What is predicate and functional interface? different between map and flatMap? 
+15) What is singleton design pattern and how to initialize it?
+16) What is Heap Dump and Thread dump?
 
+	A thread dump is a dump of the stacks of all live threads. Thus useful for analysing what an app is up to at some point in time, 
+	and if done at intervals handy in diagnosing some kinds of 'execution' problems (e.g. thread deadlock).
+	A heap dump is a dump of the state of the Java heap memory. Thus useful for analysing what use of memory an app is 
+	making at some point in time so handy in diagnosing some memory issues, and if done at intervals handy in diagnosing memory leaks.
+	
+	A thread dump is a dump of all live threads at the instant the thread dump is taken. Thus useful for analysing execution problems e.g. thread deadlock.
+	It is used when the server is hung and we want to see the threads executing and take their dump.
+	A heap dump is a JVM facility that generates the dump of the state of the Java heap memory or live objects. Thus useful for analysing some memory issues.
+
+17) What is deadlock in thread? how we can produce it?
+18) What is heap memory?
+19) If any issue arises or application gives poor performance what to check first? (Application log)
+20) How garbage collection works internally in java?
+21) How Hasmap works internally?
+22) What is Rehashing? How Rehashing is done in has map? (https://www.geeksforgeeks.org/load-factor-and-rehashing/)
+23) Difference between linkedList and ArrayList? (https://www.geeksforgeeks.org/arraylist-vs-linkedlist-java/)
+24) What is the life cycle of spring bean?
 
 ================================================
 Ericsson - Second Round - Kolkata
@@ -595,16 +633,34 @@ Ericsson - Second Round - Kolkata
 •	What is the difference between primary key and unique key? 
 •	If there are duplicate rows in DB, then how to access the duplicate records?
 
-TCS- interview questions
+TCS - interview questions
 ------------------------------------
 1)classloader in java?how it works?
 2)How a hasmap can be made thread safe?
 3)what are the differnnts ways of instanstiating objects?
 4) What is the difference between ClassNotFoundException and NoClassDefFoundError? Which one is more fatal?
+	
+	ClassNotFoundException is an exception that occurs when you try to load a class at run time using Class.forName() or loadClass() methods 
+	and mentioned classes are not found in the classpath. NoClassDefFoundError is an error that occurs when a particular class is present at compile time, 
+	but was missing at run time.
+	https://dzone.com/articles/java-classnotfoundexception-vs-noclassdeffounderro#
+	
 5) What are the different types of injection strategy available with Spring? ( Setter injection and Constructor injection )
 6) Which injection mechanism is more preferable, and why?
+
+	Setter injection overrides the constructor injection. If we use both constructor and setter injection, IOC container will use the setter injection.
+	It doesn't create a new bean instance always like constructor. So setter injection is flexible than constructor injection.
+
 7) If I inject a prototype scoped bean in a singleton bean, and then fetch the prototype bean from
 the singleton bean from the prototype, then should I get a prototype or a singleton?
+
+	https://www.baeldung.com/spring-inject-prototype-bean-into-singleton
+	Solution
+	By default, Spring holds a reference to the real object to perform the injection. Here, we create a proxy object to wire the real object with the dependent one.
+	Each time the method on the proxy object is called, the proxy decides itself whether to create a new instance of the real object or reuse the existing one.
+	To set up this, we modify the Appconfig class to add a new @Scope annotation:
+	@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE, proxyMode = ScopedProxyMode.TARGET_CLASS)
+	
 8)what is entity? how one-one one-to-many mappings are done?
 
 
@@ -794,6 +850,7 @@ hexaview
 6)What is lambda function?
 7)What is stream API?
 8)Have you worked on any MQ ?
+9) Write a programm to count occourence of a charecter in a String?
 
 cognome
 ------------------------
@@ -1072,3 +1129,5 @@ https://dzone.com/articles/microservices-using-saga-pattern
 22) How will you implement authentication for microservice with spring security?
 23) How JWT works?
 24) How we can accept request headers in spring rest controller? - with @RequestHeader
+
+
