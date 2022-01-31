@@ -600,6 +600,10 @@ Use two threads , one will wait for 10 seconds after inserting an element and ot
 22) What is Rehashing? How Rehashing is done in has map? (https://www.geeksforgeeks.org/load-factor-and-rehashing/)
 23) Difference between linkedList and ArrayList? (https://www.geeksforgeeks.org/arraylist-vs-linkedlist-java/)
 24) What is the life cycle of spring bean?
+25) can we use default method in functional interface? 
+	You can have default methods in a functional interface but its contract requires you to provide one single abstract method (or SAM). 
+	Since a default method have an implementation, it's not abstract. Conceptually, a functional interface has exactly one abstract method.
+26) Can we overload main method? - Yes, We can overload the main method in java but JVM only calls the original main method, it will never call our overloaded main method.
 
 ================================================
 Ericsson - Second Round - Kolkata
