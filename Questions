@@ -885,14 +885,13 @@ Virtusa
 4) How we can achive security in REST api?
 5) How security is implemented in your current project?
 6) In terms of memory what is the changes brought in java 8?
-	Simply put, Metaspace is a new memory space – starting from the Java 8 version; it has replaced the older PermGen memory space. The most significant difference is how it handles memory allocation.
-	Specifically, this native memory region grows automatically by default.
-	We also have new flags to tune the memory:
+	PremGen: MetaData information of classes was stored in PremGen (Permanent-Generation) memory type before Java 8. 
+	PremGen is fixed in size and cannot be dynamically resized. It was a contiguous Java Heap Memory.
+	MetaSpace: Java 8 stores the MetaData of classes in native memory called 'MetaSpace'. It is not a contiguous Heap Memory and hence 
+	can be grown dynamically which helps to overcome the size constraints. This improves the garbage collection, auto-tuning, and de-allocation of metadata.
 	MetaspaceSize and MaxMetaspaceSize – we can set the Metaspace upper bounds.
 	MinMetaspaceFreeRatio – is the minimum percentage of class metadata capacity free after garbage collection
 	MaxMetaspaceFreeRatio – is the maximum percentage of class metadata capacity free after a garbage collection to avoid a reduction in the amount of space
-	Additionally, the garbage collection process also gains some benefits from this change. The garbage collector now automatically triggers the cleaning of the dead classes once the class metadata usage reaches its maximum metaspace size.
-	Therefore, with this improvement, JVM reduces the chance to get the OutOfMemory error.
 
 7) What other new features of java 8 have you used?
 8) Explain Thread Executor service for achiving asynchronus processing?
@@ -1133,5 +1132,3 @@ https://dzone.com/articles/microservices-using-saga-pattern
 22) How will you implement authentication for microservice with spring security?
 23) How JWT works?
 24) How we can accept request headers in spring rest controller? - with @RequestHeader
-
-
