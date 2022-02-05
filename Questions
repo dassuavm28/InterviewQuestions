@@ -52,6 +52,13 @@ o	https://www.baeldung.com/java-volatile
 8.	What is the difference between an abstract class and an interface?
 9.	What is the difference between checked and unchecked exceptions and how would you handle them?
 10.	SOLID principles what are they?
+
+	S - Single responsibility - a class should have only single responsibility and should have one and only one reason for change.
+	O - Open closed principal - a class should be open for extension but closed for modification.
+	L - Liskov substitution - Object in a program should be replacable with instances with their sub types without altering the correctness of the program.
+	I - Interface segrigation - Segrigate interfaces as per the requirement rather than one general perpouse implementation.
+	D - Dependency Inversion - Should depend on abstractions rather than concreat implementations.
+	
 11.	 what's problem in below code
 @PostMapping
 
@@ -203,6 +210,7 @@ Code security
      
 20) How is distributed session management done in microservice? Any tool/software that you have used to do distributed session management?
     --> Answer : Use Redis or Hazelcast. Redis is more used. Do some reading on Redis.
+	https://www.javainuse.com/spring/springboot_session_redis
      
 21) When working with JbossMQ, what is the main configuration file? What is the main configuration file for Websphere MQ? What is the main configuration file for apache
     Kafka?
@@ -592,8 +600,11 @@ Use two threads , one will wait for 10 seconds after inserting an element and ot
 	It is used when the server is hung and we want to see the threads executing and take their dump.
 	A heap dump is a JVM facility that generates the dump of the state of the Java heap memory or live objects. Thus useful for analysing some memory issues.
 
-17) What is deadlock in thread? how we can produce it?
-18) What is heap memory?
+17) What is deadlock in thread? how we can produce it? (solution - just need to modify the lock sequence of object locks)
+18) What is heap memory? and what is heap dump?
+
+	A heap dump is a snapshot of all the objects that are in memory in the JVM at a certain moment. They are very useful to troubleshoot memory-leak problems and optimize memory usage in Java applications.
+	
 19) If any issue arises or application gives poor performance what to check first? (Application log)
 20) How garbage collection works internally in java?
 21) How Hasmap works internally?
@@ -683,6 +694,8 @@ first bean?
 	A static inner class is just like other class variables. 
 	You can access it (static inner class) without instantiation
 8) How can we customize java object serrialization? or is there a hook for cross cutting the java object serialization process?
+
+
 
 
 	IMPETUS
@@ -821,7 +834,7 @@ LIMIT 2 , 1
 
 	eRevMax
 -----------------------------
-1) What is a ConsurrenthashMap? How to Use?
+1) What is a ConcurrenthashMap? How to Use?
 2) What is a LinkedHashMap? What is the 'Link' in LinkedHashMap?
 3) What is a hashMap? 
 4) We want Employee objects as keys of a HashMap. What will happen if we do not implement hashCode() and equals() in the Employee Class?
@@ -834,6 +847,9 @@ LIMIT 2 , 1
 10) If three threads are accessing a servlet at a single point of time, how many servlet instances will be there?
 11) In thread, what is wait(), notify() and notifyAll() ?
 12) What is the difference between sleep() method and wait() method?
+	
+	Wait() method releases lock during Synchronization. Sleep() method does not release the lock on object during Synchronization. 
+	
 13) What is a Monitor in java? Is it a seperate class? How does a monitor manages a java object? Should there be different java monitors
 	for different objects in a java heap? This way, shall there be 10,000,000 monitor objects, if there are 10,000,000 objects in the
 	heap?
@@ -874,7 +890,31 @@ cerner corporation
 4) What is parallelStream and map and flatMap?
 5) How to convert List of String to List of Integer in Java 8 with stream?
 	https://www.geeksforgeeks.org/program-to-convert-list-of-string-to-list-of-integer-in-java/
+6) What is Generics? What is wild card in Generics? Whta is bounded context?
+	https://www.geeksforgeeks.org/wildcards-in-java/#
+	https://www.geeksforgeeks.org/generics-in-java/
+7) What is builder pattern?
+8) Whta is factory and singleton pattern?
+9) Name some of the end points of actuator?
 
+	/health - Returns application health information.
+	/mappings - Displays a collated list of all @RequestMapping paths
+	/loggers - The configuration of loggers in the application
+	/metrics - It shows several useful metrics information like JVM memory used, system CPU usage, open files, and much more.
+	/logfile - Returns the contents of the logfile if logging.file.name or logging.file.path properties have been set.
+	/beans - Returns a complete list of all the Spring beans in your application.
+	/env - Returns list of properties in current environment
+	/caches - It exposes available caches.
+
+10) Difference between concurrentHashMap and ShyncroNizedHashMap?
+11) What is @Spy in Junit? difference between @Mock and @spy ? What is @InjectMocks?
+
+	Mocks: Mocks are the clone or dummy objects that simulate the behavior of the real objects.
+	Spies: Spies are the partial mock objects of the real one.
+	https://www.softwaretestinghelp.com/mocks-spy-mockito/#2_Mock_creation_with_Annotations
+12) What is @profile in springBoot?
+13) What is marker interface?
+14) Why we use serialization in java?
 
 Virtusa
 --------------------------------
@@ -903,7 +943,7 @@ Virtusa
 12) What about recent log4j vernarebiliti? ( exposing JNDI in log which can be accessed and manipulated by suspicious attacker)
 13) What is api gate way in microservice?
 14) What is hibernate first and sceond level cache?
-15) Implement a real life scenario for vending machine - implement with Adapter factory design pattern.
+15) Implement a real life scenario for vending machine - implement with builder design pattern.
 
 
 LabVantage
@@ -1064,12 +1104,9 @@ ITC Infotech
 	State of Objects in Hibernate
 	There are three states of the entity object using by the Hibernate API. 
 	An object can have three states: transient, persistent and detached. 
-	Object before association session it is in Transient. 
-	When associated session it is in Persistent. 
-	Detaching from session it is in  Detached.
-	Transient State
-	Persistent State
-	Detached State
+	Transient State - Object before association with session it is in Transient. 
+	Persistent State - When associated with session it is in Persistent. 
+	Detached State - Detaching from the session it is in  Detached.	
 	
 6) What is @componentScan and @component?
 7) What is rest full api/webservice?
@@ -1104,7 +1141,9 @@ Capgemini offshore
 9) Explain Real life example of factory pattern with a document generator machine which produced different format of documents e.g. pdf, excel, word etc?
 10) What is strategy design pattern?
 	https://www.tutorialspoint.com/design_pattern/strategy_pattern.htm
-	
+11) How distributed session management is done in microservice? (Explained with redis cache)
+	https://www.javainuse.com/spring/springboot_session_redis
+	Spring Session Data Redis - provides SessionRepository and ReactiveSessionRepository implementation backed by Redis and configuration support
 	
 HCL Interview questions
 --------------------------------------------
@@ -1132,3 +1171,71 @@ https://dzone.com/articles/microservices-using-saga-pattern
 22) How will you implement authentication for microservice with spring security?
 23) How JWT works?
 24) How we can accept request headers in spring rest controller? - with @RequestHeader
+
+
+Wipro Interview
+-----------------------------
+1) WHat is docker ? explain docker run and docker build command?
+2) What is map function in strem API?
+3) Difference between @Controller and @RestController?
+4) Explain some Spring boot annotations?
+5) Whta is the difference between Collection and Stream?
+6) What are the disadvantages of using microservice?
+7) What is SAGA design pattern?
+8) Have you worked on any MQ(e.g. Kafka , RabbitMQ)?
+9) WHta is topic?
+
+MindTree
+------------------------------
+1) What are the new features of java 8?
+2) What is default method and why it is introduced?
+3) whta is the difference between map and filter?
+4) How hashmap works internally?
+5) What is the difference between hashmap and synchronized hashmap?
+6) What is the difference between rest controller and controller?
+7) How security is implemented in your current project?
+8) What are the benifits of spring boot?
+9) What are the disadvantages of microservice?
+10) what is the difference between jpa and hibernate?
+11) What is the difference between CurdRepository and JPARepository?
+	https://www.geeksforgeeks.org/spring-boot-difference-between-crudrepository-and-jparepository/
+12) WHta is fallback mechanism in microservice and how microservice communicate with each other?
+13) Write a simple microservice which update user account details?
+14) Whta is dependency injection in spring IOC?
+16) Why to use optional in java 8?
+17) Whta is distributed tracing and centralized loggging(log agreegation) in micro service?
+18) What is @NamedQuery in CurdRepository?
+19) Difference between persist() and save() and saveOrUpdate() and update() in hibernate?
+	
+	save() returns an identifier, and if an INSERT has to be executed to get the identifier, this INSERT happens immediately, no matter if you are inside or outside of a transaction. This is not good in a long-running conversation with an extended Session/persistence context.
+
+	persist() is used on transient objects. It makes a transient instance persistent. However, it doesn't guarantee that the identifier value will be assigned to the persistent instance immediately, the assignment might happen at flush time.It also guarantees that it will not execute an INSERT statement if it is called outside of transaction boundaries. This is useful in long-running conversations with an extended Session/persistence context.
+	
+	The main difference between them is that save() is Hibernate-proprietary, whereas persist() is a standard JPA method. Additionally, save() is guaranteed to assign and return an ID for the entity, whereas persist() is not.
+	
+	update() is used to attach a detached entity to the session.
+
+	saveOrUpdate() is used to either save or update an entity depending on the state (new or detached) of the entity. This method calls save() or update() based on the operation. If the identifier exists, it will call update method else the save method will be called. 	
+	
+20) Difference between @PathVariable @RequestParameter in spring boot?
+21) What is @Conditional annotation in springboot?
+
+Mphasis
+--------------------------
+1) How to Handle Singleton Classes in Distributed Environment?
+	https://www.youtube.com/watch?v=xVWPIdjngOw
+	we have to make our singleton class serializable and implement the Serializable interface and declare the serialVersionUid for the class.In this way the singleton instance can be stored in a file system and can be used by other JVMs. Here we need to create readResolve method inside the singleton class which will be called by different JVM in distribute environment, so that every time deserialization happens it gives the same object across the distributed environment.
+	public Object readResolve(){
+		retuen getInstance();
+	}
+	
+2) Tell me a scenarion where you have applied the abstruct factory pattern in your project?
+3) How to call other microservices from one microservice?
+4) what is component in anguler JS?
+5) How we can define the number of pod replicas in openshift?
+6) What are the benifits of openshift?
+7) How will you deploy your services in openshift?
+8) How will you do the database transaction via microservice?
+9) What type of functional interface filter operation in stream api consumes? (Predicate)
+10) What is lambda expression? what is -> in lambda expression? (It is used to link arguments-list and body of expression.) 
+11) How will you convert a web project into a springboot project?
