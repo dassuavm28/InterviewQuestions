@@ -915,6 +915,15 @@ cerner corporation
 12) What is @profile in springBoot?
 13) What is marker interface?
 14) Why we use serialization in java?
+16) Which REST calls are idempotent?
+	Idempotence is a funky word that often hooks people. Idempotence is sometimes a confusing concept, at least from the academic definition.
+
+	From a RESTful service standpoint, for an operation (or service call) to be idempotent, clients can make that same call repeatedly while producing the same result. In other words, making multiple identical requests has the same effect as making a single request. Note that while idempotent operations produce the same result on the server (no side effects), the response itself may not be the same (e.g. a resource's state may change between requests).
+
+	The PUT and DELETE methods are defined to be idempotent. However, there is a caveat on DELETE. The problem with DELETE, which if successful would normally return a 200 (OK) or 204 (No Content), will often return a 404 (Not Found) on subsequent calls, unless the service is configured to "mark" resources for deletion without actually deleting them. However, when the service actually deletes the resource, the next call will not find the resource to delete it and return a 404. However, the state on the server is the same after each DELETE call, but the response is different.
+
+	GET, HEAD, OPTIONS and TRACE methods are defined as safe, meaning they are only intended for retrieving data. This makes them idempotent as well since multiple, identical requests will behave the same.
+17) What are the best practices we can follow while desiging microservices?
 
 Virtusa
 --------------------------------
@@ -931,7 +940,7 @@ Virtusa
 	can be grown dynamically which helps to overcome the size constraints. This improves the garbage collection, auto-tuning, and de-allocation of metadata.
 	MetaspaceSize and MaxMetaspaceSize – we can set the Metaspace upper bounds.
 	MinMetaspaceFreeRatio – is the minimum percentage of class metadata capacity free after garbage collection
-	MaxMetaspaceFreeRatio – is the maximum percentage of class metadata capacity free after a garbage collection to avoid a reduction in the amount of space
+	MaxMetaspaceFreeRatio – is the maximum percentage of class metadata capacity free after a garbage collection to avoid a reduction in the amount of space.
 
 7) What other new features of java 8 have you used?
 8) Explain Thread Executor service for achiving asynchronus processing?
@@ -1151,7 +1160,7 @@ HCL Interview questions
 2) What is consumer supplier interface?
 3) how to handle different request mapping and http methods in spring boot?
 4) How to write custom methods for fetching data in jpaRepository?
-5) Write a query for getting the detaila of student having highest mark?
+5) Write a query for getting the details of student having highest mark?
 6) What is aggregate function in sql?
 7) what is sealed class in java? What is restore in java?
 8) How to handle asynchronous processing in spring boot?
@@ -1219,6 +1228,47 @@ MindTree
 	
 20) Difference between @PathVariable @RequestParameter in spring boot?
 21) What is @Conditional annotation in springboot?
+22) What is horizontal scaling and vertical scaling? whta is static and dyanamic scaling?
+
+	Vertical Scaling: When new resources are added in the existing system to meet the expectation, it is known as vertical scaling. 
+	Vertical scaling is based on the idea of adding more power(CPU, RAM) to existing systems, basically adding more resources.
+	
+	Horizontal Scaling: When new server racks are added in the existing system to meet the higher expectation, it is known as horizontal scaling. 
+	Horizontal scaling is based on the idea of adding more machines into our pool of resources
+	
+	Basically, the application dynamically adds or removes servers from the application infrastructure in order to balance the needs of the application against the costs of running the application. Amazon Web Services, for example, has an Auto Scaling service that performs this capability.
+	
+23) Real life example of Singleton design pattern?
+	
+	When you use Logger, you use Singleton pattern for the Logger class. In case it is not Singleton, every client will have its own Logger object and there will be concurrent access on the Logger instance in Multithreaded environment, and multiple clients will create/write to the Log file concurrently, this leads to data corruption.
+	
+	Configuration File: This is another potential candidate for Singleton pattern because this has a performance benefit as it prevents multiple users to repeatedly access and read the configuration file or properties file. It creates a single instance of the configuration file which can be accessed by multiple calls concurrently as it will provide static config data loaded into in-memory objects. 
+	
+	for making the connection object singleton in jdbc
+	public class DatabaseConnection {  
+    private static Connection con = null;  
+    static
+    {
+        String url = "jdbc:mysql:// localhost:3306/org";
+        String user = "root";
+        String pass = "root";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection(url, user, pass);
+        }
+        catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static Connection getConnection()
+    {
+        return con;
+    }
+
+24) What is stored procedure and view in databse?
+25) How security is handled in Rest api?
+26) How will you deploy your services in openshift?
+
 
 Mphasis
 --------------------------
