@@ -33,7 +33,15 @@
 25.	Features of Java 9,10, 11 
 26.	How to make a class immutable?
 27.	Memory Management in Java - What does a Memory leak happen in Java? Will this cause memory leak - public static List<Double> list = new ArrayList<>(); ?
+
+	Java does automatic Garbage collection. However there can be situations where garbage collector does not collect objects because there are references to them. There might be situations where an application creates lots of objects and does not use them. Just because every objects has valid references, garbage collector in Java can’t destroys the objects. Such types of useless objects are called as Memory leaks. If allocated memory goes beyond limit, program will be terminated by rising OutOfMemoryError. Hence if an object is no longer required, it is highly recommended to make that object eligible for garbage collector. Otherwise We should use some tools that do memory management to identifies useless objects or memory leaks like: 
+	HP OVO
+	HP J METER
+	JProbe
+	IBM Tivoli
+
 28.	What does the static keyword mean?
+	The static keyword belongs to the class than an instance of the class. The static keyword is used for a constant variable or a method that is the same for every instance of a class.
 29.	How are Static Blocks initialized in Java? 
 30.	What is the difference between final, finally, finalize?
 31.	What is Big(O) notation ? 
@@ -924,6 +932,13 @@ cerner corporation
 
 	GET, HEAD, OPTIONS and TRACE methods are defined as safe, meaning they are only intended for retrieving data. This makes them idempotent as well since multiple, identical requests will behave the same.
 17) What are the best practices we can follow while desiging microservices?
+18) What is cascading in hibernate and how we can apply the same?
+19) What happens if we try to insert null key in treeMap?
+	TreeMap sorts elements in natural order and doesn't allow null keys because compareTo() method throws NullPointerException if compared with null.
+20) Default size of Vector and complexcity of unordered collection in java?
+21) Which is ordered collection between List , Set and Map? (Ans- List)
+22) How treeSet stores elements internally?
+	whenever you are adding element to the TreeSet object , it works just like HashSet , The only difference is that instead of HashMap here we have TreeMap object in the constructor.
 
 Virtusa
 --------------------------------
@@ -1153,6 +1168,17 @@ Capgemini offshore
 11) How distributed session management is done in microservice? (Explained with redis cache)
 	https://www.javainuse.com/spring/springboot_session_redis
 	Spring Session Data Redis - provides SessionRepository and ReactiveSessionRepository implementation backed by Redis and configuration support
+12) What is @Profile and @ConfigurationProperty in springboot?
+	https://www.appsdeveloperblog.com/using-spring-boot-configurationproperties-and-profile/
+13) Can we debug lambda function? how to improve quality of a lambda function or review a lambda function?
+14) Difference between hibernate load() and get() method?
+	Get() method return null, If no row is available in the session cache or the database for the given identifier whereas load() method throws object not found exception. 
+	If you are not sure that object exist then use get() method?
+	If you are sure that object exist then use load() method?
+15) Can we integrate and define viewResolver in springboot?
+	https://stackoverflow.com/questions/63047573/internal-resource-view-resolver-not-working-in-spring-boot
+16) How we can execlud default tomcat server from springboot? 
+
 	
 HCL Interview questions
 --------------------------------------------
@@ -1180,6 +1206,16 @@ https://dzone.com/articles/microservices-using-saga-pattern
 22) How will you implement authentication for microservice with spring security?
 23) How JWT works?
 24) How we can accept request headers in spring rest controller? - with @RequestHeader
+25) What is BDD and TDD documents? 
+26) What is UML diagram?
+27) What is association in class diagram?
+28) How to check performence issues in web application?
+29) What is memory leak and garbage collection in java?
+30) How to write custom immutable class?
+	The class must be declared as final so that child classes can’t be created.
+	Data members in the class must be declared private without any setter methods so that direct access is not allowed.
+	Data members in the class must be declared as final so that we can’t change the value of it after object creation
+40) What is normalization in database? What is left join?
 
 
 Wipro Interview
@@ -1289,3 +1325,44 @@ Mphasis
 9) What type of functional interface filter operation in stream api consumes? (Predicate)
 10) What is lambda expression? what is -> in lambda expression? (It is used to link arguments-list and body of expression.) 
 11) How will you convert a web project into a springboot project?
+
+
+IRISH Software 
+-------------------------
+1) String s4 = "java";
+   String s5 = new String("java");
+   How many String object is created ? ans- only1
+2) How to create immutable class?
+	There are many immutable classes like String, Boolean, Byte, Short, Integer, Long, Float, Double etc. In short, all the wrapper classes and String class is immutable. We can also create immutable class by creating final class that have final data members.
+	The instance variable of the class is final i.e. we cannot change the value of it after creating an object.
+	The class is final so we cannot create the subclass.
+	There is no setter methods i.e. we have no option to change the value of the instance variable.
+3) What is CountDownLatch in multi threading?
+4) What is TreeSet and LinkedHashSet? and difference between them?
+	
+	If you want to sort the elements according to some Comparator then use TreeSet
+	TreeSet uses TreeMap internally to store objects
+	
+	If you want to maintain the insertion order of elements then you can use LinkedHashSet
+	LinkedHashSet uses LinkedHashMap internally to store objects
+5) What is builder pattern? when to use?
+6) difference between == and === in jsp?
+7) What is doctype in html?
+8)	What is bootstrap in anguler?
+9)	what is lazy and egar loading in hibernate?
+10) What is cache in hibernate?
+11) What is two way binding in anguler?
+12) can we debug jsp code?
+13) Explain spring MVC workflow?
+13) Difference between accept and content-type?
+14) what is fail fast and fail safe Iterator in java?
+15) What is try with resources?
+16) What is the difference between concurrentHashMap and ShyncronizedHashMap? and which will perform better?
+	The main difference between these two is that ConcurrentHashMap will lock only portion of the data which are being updated while other portion of data can be accessed by other threads. However, Collections.synchronizedMap() will lock all the data while updating, other threads can only access the data when the lock is released. If there are many update operations and relative small amount of read operations, you should choose ConcurrentHashMap.
+17) What is the difference between Error and Exception in java?
+18) What are the hibernate performance issues?
+19) What is N+1 select problem in hibernate?
+	Using FetchType.EAGER either implicitly or explicitly for your JPA associations is a bad idea because you are going to fetch way more data that you need. More, the FetchType.EAGER strategy is also prone to N+1 query issues.
+	Unfortunately, the @ManyToOne and @OneToOne associations use FetchType.EAGER by default, so if your mappings look like this:
+	https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping
+20) What are the states of hibernate objects?
