@@ -939,6 +939,9 @@ cerner corporation
 21) Which is ordered collection between List , Set and Map? (Ans- List)
 22) How treeSet stores elements internally?
 	whenever you are adding element to the TreeSet object , it works just like HashSet , The only difference is that instead of HashMap here we have TreeMap object in the constructor.
+23) How will you find duplicate dependency in project configured with maven?
+	dependency:analyze-duplicate Analyzes the and tags in the pom.xml and determines the duplicate declared dependencies.
+	mvn dependency:analyze-duplicate
 
 Virtusa
 --------------------------------
@@ -1178,6 +1181,9 @@ Capgemini offshore
 15) Can we integrate and define viewResolver in springboot?
 	https://stackoverflow.com/questions/63047573/internal-resource-view-resolver-not-working-in-spring-boot
 16) How we can execlud default tomcat server from springboot? 
+17) What is parent and child POM? What is BOM?
+	https://howtodoinjava.com/maven/maven-parent-child-pom-example/
+	BOM stands for Bill Of Materials. Maven lets us define the versions of the dependencies or transitive dependencies in a separate POM. A BOM package is a POM only jar file that is used to control the versions of a project's dependencies and provide a central place to define and update those versions.
 
 	
 HCL Interview questions
@@ -1366,3 +1372,48 @@ IRISH Software
 	Unfortunately, the @ManyToOne and @OneToOne associations use FetchType.EAGER by default, so if your mappings look like this:
 	https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping
 20) What are the states of hibernate objects?
+
+NTT Data
+------------------------------
+1) What are the new features added in java 8 along with memory management change?
+2) What is serializable and Externalizable?
+	https://howtodoinjava.com/java/serialization/externalizable-vs-serializable/
+	https://www.baeldung.com/java-externalizable
+3) How to create custom Immutable class and make the list declered inside that also immutable?
+	https://www.journaldev.com/129/how-to-create-immutable-class-in-java
+	Declare the class as final so it can’t be extended.
+	Make all fields private so that direct access is not allowed.
+	Don’t provide setter methods for variables.
+	Make all mutable fields final so that its value can be assigned only once.
+	Initialize all the fields via a constructor performing deep copy.
+	Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
+4) What is the output of below program?
+	Map<String,String> tMap = new HashMap<>();
+	tMap.put(null, "t1");
+	tMap.put(null, "t2");
+	tMap.put(null, null);	
+	System.out.println(tMap.get(null));
+ans- null
+5) What is the output of the below program?
+public class ClassA {
+	public void show() {
+		System.out.println("Inside A");
+	}
+}
+public class ClassB extends ClassA {	
+	@Override
+	public void show() throws IOException {
+		System.out.println("Inside B");
+	}
+	public static void main(String[] args) {		
+		ClassA a = new ClassB();
+		a.show();
+	}
+}
+ans- Exception IOException is not compatible with throws clause in ClassA.show() , also neew to add 'throws IOException' in main() signature.
+6) With stream how will you filter the names starting with S from a list of names?
+7) What is Lock and ReentrantLock in java?
+	https://winterbe.com/posts/2015/04/30/java8-concurrency-tutorial-synchronized-locks-examples/
+8)What is deep copy ans shallow copy in java?
+	In shallow copy, only fields of primitive data type are copied while the objects references are not copied. Deep copy involves the copy of primitive data type as well as object references.
+	
