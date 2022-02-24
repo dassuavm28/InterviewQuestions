@@ -1412,8 +1412,36 @@ public class ClassB extends ClassA {
 }
 ans- Exception IOException is not compatible with throws clause in ClassA.show() , also neew to add 'throws IOException' in main() signature.
 6) With stream how will you filter the names starting with S from a list of names?
+	Stream stream = list.stream().filter(name -> name.startsWith("J"));
 7) What is Lock and ReentrantLock in java?
 	https://winterbe.com/posts/2015/04/30/java8-concurrency-tutorial-synchronized-locks-examples/
 8)What is deep copy ans shallow copy in java?
 	In shallow copy, only fields of primitive data type are copied while the objects references are not copied. Deep copy involves the copy of primitive data type as well as object references.
 	
+	
+L&T Infotech
+------------------------
+1) Tell about your current project architechture and business functionalities?
+2) How auto scaling is handleed in your openshift container platfrom? (Based on cpu utilization)
+3) What is feign client?
+4) What are the microservices design patterns?
+5) How to implement many to many relationship in hibernate?
+6) How to implement dynamic sql query in hibernate/spring/jpa so that we can bypass sql injection attack?
+7) How to implement the tiny url to invoke your back end application?
+8) How to create custom Immutable class and make the list declered inside that also immutable?
+	https://www.journaldev.com/129/how-to-create-immutable-class-in-java
+	Declare the class as final so it can’t be extended.
+	Make all fields private so that direct access is not allowed.
+	Don’t provide setter methods for variables.
+	Make all mutable fields final so that its value can be assigned only once.
+	Initialize all the fields via a constructor performing deep copy.
+	Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
+9) How exception is handled in spring-boot rest api? (ControllerAdvice)
+10) What is interceptor in spring-boot?
+	https://www.tutorialspoint.com/spring_boot/spring_boot_interceptor.htm
+11) What is spring security and how to implement it?
+12) What is authorization bypass vernarebilities and OWASP?
+13) What is executor service?
+14) How async processing is done in spring-boot?
+15) What is retry in microservice?
+16) What is service discovery?
