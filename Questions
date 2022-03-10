@@ -1483,3 +1483,4 @@ Accentutre project interview
 		3           HIRAN      4
 20) How filter can be used to filter certain objects from a list of objects based on certain property of object?
 21) How security is implemented in your current project? is the security is common for all the microservices?
+22) What will happen if we synchronize only a method in a class and mutiple thread tries to access the method?
