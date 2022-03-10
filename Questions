@@ -1445,3 +1445,41 @@ L&T Infotech
 14) How async processing is done in spring-boot?
 15) What is retry in microservice?
 16) What is service discovery?
+
+Accentutre project interview
+-----------------------------
+1) Advantage of using Interface? which is better to use Interface or Abstruct class?
+2) What happens if two interface declares same method and concrete class tries to implement the same?
+3) What is better to use Interface or Abstruct class?
+4) What is functional interface?
+5) How to use comparator in java 8 with code signature?
+	https://www.baeldung.com/java-8-sort-lambda
+6) When to use comparator and comparable?
+7) What is OUTER , LEFT OUTER and INNER join?
+8) What is cursor , stored procedure and constrains?
+	https://www.geeksforgeeks.org/what-is-cursor-in-sql/?ref=gcse	
+9) how to filter values in lambda functions? 
+10) How load balancing is done in spring boot?
+11) What is @controlleradvice in springboot?
+12) How memory management and garbage collection is done in java?
+13) What is heap memory and stack memory?
+
+	Java Heap Space is used throughout the application, but Stack is only used for the method — or methods — currently running. The Heap Space contains all objects are created, but Stack contains any reference to those objects. Objects stored in the Heap can be accessed throughout the application.
+	
+14) Difference between shynchronized and concurrent collection?
+15) What is system.exit() in java?
+16) how serialization is done in java?
+17) what is @Conditional?
+18) Can we catch OutOfMemoryError? how to increase the JVM memory?
+	https://rollbar.com/blog/how-to-handle-outofmemoryerror-exceptions-in-java/
+	Since the java.lang.OutOfMemoryError descends from the Throwable class, it can be caught and handled in application code. In some cases, especially when the lines of code that may be causing the OutOfMemoryError are known, it can be a good idea to handle the error. Where it’s possible to do so, it is best practice to clean up the resources, log the reason for the failure and exit the program gracefully. 
+19) Write a query to get the manager names from below table?
+
+		EMPLOYEE TABLE
+		----------------
+		EMP ID | EMP NAME | MANAGER ID
+		-------------------------------
+		1           SURAJ      3
+		3           HIRAN      4
+20) How filter can be used to filter certain objects from a list of objects based on certain property of object?
+21) How security is implemented in your current project? is the security is common for all the microservices?
