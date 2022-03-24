@@ -1466,7 +1466,7 @@ Accentutre project interview
 
 	Java Heap Space is used throughout the application, but Stack is only used for the method — or methods — currently running. The Heap Space contains all objects are created, but Stack contains any reference to those objects. Objects stored in the Heap can be accessed throughout the application.
 	
-14) Difference between shynchronized and concurrent collection?
+14) Difference between shynchronized and concurrent  Map?
 15) What is system.exit() in java?
 16) how serialization is done in java?
 17) what is @Conditional?
@@ -1484,5 +1484,5 @@ Accentutre project interview
 20) How filter can be used to filter certain objects from a list of objects based on certain property of object?
 21) How security is implemented in your current project? is the security is common for all the microservices?
 22) What will happen if we synchronize only a method in a class and mutiple thread tries to access the method?
-23) Can a child interface which extends the parent interface have the same method? and can it be implemented in the class which is implementing both the interfaces?
+	When a thread invokes a synchronized method, it automatically acquires the lock for that object and releases it when the thread completes its task.
 23) Can a child interface which extends the parent interface have the same method? and can it be implemented in the class which is implementing both the interfaces? - Yes , except when the implementation is present in both the interfaces as form of default method , in that case super need to be used for invoking the exact implementaion.
