@@ -1486,3 +1486,14 @@ Accentutre project interview
 22) What will happen if we synchronize only a method in a class and mutiple thread tries to access the method?
 	When a thread invokes a synchronized method, it automatically acquires the lock for that object and releases it when the thread completes its task.
 23) Can a child interface which extends the parent interface have the same method? and can it be implemented in the class which is implementing both the interfaces? - Yes , except when the implementation is present in both the interfaces as form of default method , in that case super need to be used for invoking the exact implementaion.
+
+SPEICE MONEY
+--------------
+1) There are thow thread working and getting data from file and writing in another file , it will write 1,2,3,4,... once by one . One thread will write the odd numbers and other will write the even numbers. How to achive this problem.
+2) What is split iterator?
+3) What is fail fast and fail safe?
+4) What will happen if I put a prototype scope bean inside a singleton scope bean? is the reverse scenario possible?
+5) What @Conditional annotation does in spring?
+6) What is @ViewChild in anguler?
+7) What does JPA merge() method do?
+8) Have you used any api gateway in your application ? if so, what are the advantages and disadvantages of it in microservice architecture?
