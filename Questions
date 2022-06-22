@@ -1498,3 +1498,4 @@ SPEICE MONEY
 6) What is @ViewChild in anguler?
 7) What does JPA merge() method do?
 8) Have you used any api gateway in your application ? if so, what are the advantages and disadvantages of it in microservice architecture?
+9) What is idempotent in rest api?
