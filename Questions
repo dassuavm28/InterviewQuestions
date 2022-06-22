@@ -1490,6 +1490,7 @@ Accentutre project interview
 SPEICE MONEY
 --------------
 1) There are thow thread working and getting data from file and writing in another file , it will write 1,2,3,4,... once by one . One thread will write the odd numbers and other will write the even numbers. How to achive this problem.
+ Ans: https://www.geeksforgeeks.org/print-even-and-odd-numbers-in-increasing-order-using-two-threads-in-java/
 2) What is split iterator?
 3) What is fail fast and fail safe?
 4) What will happen if I put a prototype scope bean inside a singleton scope bean? is the reverse scenario possible?
