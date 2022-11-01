@@ -1499,3 +1499,19 @@ SPEICE MONEY
 7) What does JPA merge() method do?
 8) Have you used any api gateway in your application ? if so, what are the advantages and disadvantages of it in microservice architecture?
 9) What is idempotent in rest api?
+
+Nagarro interview questions
+–-------------------------------
+1) What is terminal and intermediate operation in java 8?
+2)How we can create thread pool?
+3) Is ExecutorService an interface?
+4) What is @Conditional in springboot?
+5) What is idempotent in REST api?
+6) What is the docker image build command?
+7) What is Decorator in angular?
+8) What is the ecma script version in anguler 8?
+9)What are the Api gatway you have used?
+10) What are the rest security methods you have used?
+12) Explain the spring MVC architecture?
+13) What design pattern is used in sring MVC?
+14)What are the microsevice design patterns you have used?
