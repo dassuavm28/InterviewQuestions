@@ -1337,7 +1337,7 @@ IRISH Software
 -------------------------
 1) String s4 = "java";
    String s5 = new String("java");
-   How many String object is created ? ans- only1
+   How many String object is created ? ans- 2
 2) How to create immutable class?
 	There are many immutable classes like String, Boolean, Byte, Short, Integer, Long, Float, Double etc. In short, all the wrapper classes and String class is immutable. We can also create immutable class by creating final class that have final data members.
 	The instance variable of the class is final i.e. we cannot change the value of it after creating an object.
